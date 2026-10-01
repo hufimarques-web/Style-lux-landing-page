@@ -105,3 +105,22 @@ Abre `/crm` ou `/admin` e entra com a conta privada existente em `data/acesso-ad
 - Para refletir mudanças no servidor, reinicia `python3 server.py`. Mantém o serviço restrito a `127.0.0.1` enquanto não estiver pronto para produção.
 
 Testes CRM isolados: `python3 tests/test_crm.py`.
+
+## Publicação no GitHub e na Vercel
+
+O repositório contém o site, a agenda e o CRM. `data/`, backups, credenciais, ficheiros `.env` e dados de clientes não são enviados para o GitHub nem para a Vercel.
+
+A Vercel usa `api/index.py` para a API e `public/` para o site. A configuração está em `vercel.json`. O painel fica em `/crm` e abre na Visão geral.
+
+Antes de ativar reservas online, configurar na Vercel:
+
+- `DATABASE_URL`: ligação PostgreSQL persistente (por exemplo, uma base Neon ligada pelo Marketplace da Vercel). Não usar SQLite nem uma cópia em `/tmp` em produção.
+- `STYLELUX_USERS_JSON`: objeto JSON com uma lista `users`; cada utilizador tem `username`, `password_hash` e `password_salt`, produzidos pela função `config.hash_password`. Guardar como variável sensível, nunca no repositório. Usar as contas já configuradas localmente, sem publicar as palavras-passe.
+
+O esquema é criado automaticamente no primeiro pedido da API. Uma instalação nova começa vazia: a publicação **não transfere** dados locais de clientes ou marcações. A API devolve indisponibilidade se faltar a configuração, em vez de aceitar reservas sem armazenamento permanente.
+
+A implementação PostgreSQL utiliza um bloqueio transacional partilhado para serializar alterações da agenda e impedir que instâncias concorrentes reservem a mesma vaga. O suporte foi preparado; a validação numa base PostgreSQL real deve ser concluída antes de abrir as reservas ao público.
+
+A agenda atualiza-se automaticamente a cada 5 segundos enquanto está aberta; o formulário público reconsulta horários a cada 15 segundos e confirma a disponibilidade novamente no envio. Bloqueios, limite diário e horários são controlados no CRM.
+
+A secção Limpeza do Motor já está acima do interior. A fotografia definitiva está pendente de envio pelo proprietário.
