@@ -82,14 +82,9 @@ python3 tests/test_backend.py
 
 ---
 
-## 🌐 Passos Necessários para Publicação Definitiva (Produção)
+## Publicação
 
-Antes de colocar o site em produção para o público geral:
-
-1. **Alojamento & Servidor Persistente**: Configurar um servidor VPS (ex: Ubuntu com Systemd) ou serviço de alojamento que mantenha o processo Python ativo.
-2. **Reverse Proxy & HTTPS**: Configurar Nginx ou Caddy com certificado SSL gratuito (Let's Encrypt / Certbot) para acesso seguro via `https://stylelux...`.
-3. **Domínio & DNS**: Apontar o registo A do domínio oficial para o endereço IP do servidor.
-4. **Cópia de Segurança da BD**: Configurar cronjob de backup periódico do ficheiro `data/stylelux.db`.
+O destino escolhido é a Vercel, com PostgreSQL persistente. Ver a configuração no fim deste documento. O modo local continua a usar SQLite.
 
 ## CRM — agenda, clientes e resultados
 
@@ -101,7 +96,7 @@ Abre `/crm` ou `/admin` e entra com a conta privada existente em `data/acesso-ad
 - Gastos em anúncios registados manualmente, editáveis para corrigir valores. Não existe sincronização com Meta Ads nem importação automática de leads Facebook.
 - Acordo de comissão e percentagem dos custos por mês, sem percentagens presumidas.
 - Comissão apenas sobre marcações atribuídas, concluídas e assinaladas como pagas. Os relatórios usam a data da lavagem; não são contabilidade por data de recebimento. O saldo mostrado é da operação de tráfego (comissão menos a parte dos anúncios), não o lucro da lavadora.
-- Exportação CSV do período e filtros atuais; atualização automática de 30 em 30 segundos enquanto não estás a editar.
+- Exportação CSV do período e filtros atuais; atualização automática de 5 em 5 segundos enquanto não estás a editar.
 - Para refletir mudanças no servidor, reinicia `python3 server.py`. Mantém o serviço restrito a `127.0.0.1` enquanto não estiver pronto para produção.
 
 Testes CRM isolados: `python3 tests/test_crm.py`.
