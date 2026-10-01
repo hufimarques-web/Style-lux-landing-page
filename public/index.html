@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Lux Auto Details | Detalhe Automóvel Premium em Aveiro</title>
+  <meta name="description" content="Serviço de detalhe e lavagem premium automóvel nas bombas da BP em Aveiro. Escolha o seu pacote e agende o horário de entrega da sua viatura online.">
+  <meta name="keywords" content="Style Lux, detalhe automóvel Aveiro, lavagem premium Aveiro, higienização estofados, limpeza motor Aveiro">
+  
+  <link rel="stylesheet" href="css/style.css?v=20261001-motor">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏎️</text></svg>">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo" aria-label="Style Car Wash — início">
+        <img src="assets/style-car-wash-logo.jpg" alt="Style Car Wash" width="320" height="58">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#servicos">Pacotes & Serviços</a></li>
+        <li><a href="#motor">Limpeza do Motor</a></li>
+        <li><a href="#detalhe">Cuidado Interior</a></li>
+        <li><a href="#contactos">Localização</a></li>
+      </ul>
+      <button class="btn-cta" id="btn-nav-book" onclick="openBookingModal()">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        Escolher Horário
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
+      <div class="hero-tag">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        Excelência & Detalhe Automóvel
+      </div>
+      <h1 class="hero-title">Tratamento Exclusivo para o seu <span>Automóvel</span></h1>
+      <p class="hero-subtitle">Lavagem manual técnica, higienização profunda e acabamento de alto nível em Aveiro. Escolha o serviço e agende diretamente a entrega da sua viatura.</p>
+      
+      <div class="hero-actions">
+        <button class="btn-cta" onclick="openBookingModal('completa')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          Reservar Lavagem Completa
+        </button>
+        <a href="#servicos" class="btn-secondary">Comparar Pacotes</a>
+      </div>
+
+      <div class="hero-location-bar">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        Aveiro (nas bombas da BP, Av. Dr. Francisco Vale Guimarães)
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICES SECTION -->
+  <section class="section" id="servicos">
+    <div class="section-header">
+      <p class="section-subtitle">Transparência & Qualidade</p>
+      <h2 class="section-title">Nossas Ofertas Premium</h2>
+    </div>
+
+    <div class="packages-grid">
+      
+      <!-- PACKAGE 1: PREMIUM (80 EUR) -->
+      <div class="package-card" id="card-premium">
+        <div class="package-header">
+          <h3 class="package-name">Lavagem Premium</h3>
+          <div class="package-price">
+            <span class="amount">80</span>
+            <span class="currency">€</span>
+          </div>
+        </div>
+        <ul class="package-highlights">
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Lavagem exterior manual</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Limpeza de jantes</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Vidros interior e exterior</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Limpeza de tablier e laterais</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Higienização de estofados</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Revitalização dos plásticos</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Proteção da pele dos bancos</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Aspiração com jato de ar</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Limpeza do ar condicionado</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Cera protetora e acabamento premium</span>
+          </li>
+          <li class="excluded">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+            <span>Limpeza de motor (não incluída)</span>
+          </li>
+        </ul>
+        <button class="btn-secondary" onclick="openBookingModal('premium')">
+          Escolher Horário — 80 €
+        </button>
+      </div>
+
+      <!-- PACKAGE 2: PREMIUM COMPLETA (130 EUR) -->
+      <div class="package-card popular" id="card-completa">
+        <span class="popular-badge">Recomendado</span>
+        <div class="package-header">
+          <h3 class="package-name">Lavagem Premium Completa</h3>
+          <div class="package-price">
+            <span class="amount">130</span>
+            <span class="currency">€</span>
+          </div>
+        </div>
+        <ul class="package-highlights">
+          <li class="motor-highlight">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Inclui Limpeza Técnica de Motor</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Lavagem exterior manual</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Limpeza de jantes</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Vidros interior e exterior</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Limpeza de tablier e laterais</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Higienização de estofados</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Revitalização dos plásticos</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Proteção da pele dos bancos</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Aspiração com jato de ar</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Limpeza do ar condicionado</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Cera protetora e acabamento premium</span>
+          </li>
+        </ul>
+        <button class="btn-cta" style="width:100%; justify-content:center;" onclick="openBookingModal('completa')">
+          Escolher Horário — 130 €
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ENGINE CLEANING SPOTLIGHT -->
+  <section class="section detail-section" id="motor">
+    <div class="detail-grid">
+      <div class="detail-content">
+        <p class="section-subtitle">Incluída na Premium Completa · 130 €</p>
+        <h2>Limpeza do Motor</h2>
+        <p>O cuidado com o seu carro também passa pelo que está debaixo do capô. A Lavagem Premium Completa inclui a limpeza do motor, além de todos os cuidados do interior e exterior.</p>
+        <button class="btn-cta" onclick="openBookingModal('completa')">Marcar Lavagem Completa — 130 €</button>
+      </div>
+      <div class="detail-img-container engine-photo-placeholder" aria-label="Limpeza do motor — fotografia a adicionar">
+        <span class="section-subtitle">STYLE LUX AUTO DETAILS</span>
+        <span class="engine-placeholder-title">Cuidado em cada detalhe.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERIOR & DETAIL SPOTLIGHT -->
+  <section class="section detail-section" id="detalhe">
+    <div class="detail-grid">
+      <div class="detail-img-container">
+        <img src="assets/interior-limpeza.jpeg" alt="Higienização de banco automóvel com espuma — Style Lux Aveiro">
+      </div>
+      <div class="detail-content">
+        <p class="section-subtitle">Detalhismo de Rigor</p>
+        <h2>Cuidado Absoluto com o Interior do Seu Veículo</h2>
+        <p>Utilizamos procedimentos de limpeza minuciosa dos estofados, pele e componentes do habitáculo. Os plásticos são revitalizados e a ventilação é desinfetada para devolver ao seu carro a sensação de novo.</p>
+
+        <div class="detail-features">
+          <div class="detail-feature-item">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Higienização Profunda
+          </div>
+          <div class="detail-feature-item">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Tratamento de Pele
+          </div>
+          <div class="detail-feature-item">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Aspiração a Jato de Ar
+          </div>
+          <div class="detail-feature-item">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Limpeza do Ar Condicionado
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION & CONTACTS SECTION -->
+  <section class="section" id="contactos">
+    <div class="section-header">
+      <p class="section-subtitle">Onde Nos Encontrar</p>
+      <h2 class="section-title">Localização & Contactos</h2>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        </div>
+        <h3 class="info-title">Endereço em Aveiro</h3>
+        <p class="info-desc">Av. Dr. Francisco Vale Guimarães, 3810-265 Aveiro<br>(Nas bombas da BP, junto ao pavilhão do Clube dos Galitos e em frente à Casa do Cidadão)</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <h3 class="info-title">Horário de Funcionamento</h3>
+        <p class="info-desc">Segunda a Sábado<br><strong>09h00 – 19h00</strong><br>Encerrados ao Domingo</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+        </div>
+        <h3 class="info-title">Contactos Diretos</h3>
+        <p class="info-desc">
+          Telemóvel 1: <a href="tel:933555877" class="info-link">933 555 877</a><br>
+          Telemóvel 2: <a href="tel:910677588" class="info-link">910 677 588</a><br>
+          Instagram: <a href="https://instagram.com/style_lux_auto_details" target="_blank" rel="noopener" class="info-link">@style_lux_auto_details</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING WIZARD MODAL -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          Agendar Entrega da Viatura
+        </h3>
+        <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+      </div>
+      
+      <div class="modal-body">
+        
+        <div id="bookingFormStep">
+          <div class="alert alert-danger" id="formError"></div>
+
+          <!-- SERVICE SELECTOR -->
+          <div class="form-group">
+            <label class="form-label">1. Selecione o Serviço</label>
+            <div class="service-selector">
+              <div class="service-option" id="opt-premium" onclick="selectService('premium')">
+                <div class="service-option-title">Lavagem Premium</div>
+                <div class="service-option-price">80 €</div>
+              </div>
+              <div class="service-option" id="opt-completa" onclick="selectService('completa')">
+                <div class="service-option-title">Lavagem Premium Completa</div>
+                <div class="service-option-price">130 €</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DATE SELECTOR -->
+          <div class="form-group">
+            <label class="form-label" for="bookingDate">2. Selecione a Data</label>
+            <input type="date" id="bookingDate" class="form-control" onchange="fetchAvailability()">
+          </div>
+
+          <!-- TIME SLOT SELECTOR -->
+          <div class="form-group">
+            <label class="form-label">3. Horário de Entrega da Viatura</label>
+            <div class="slots-grid" id="slotsGrid">
+              <div style="color:var(--text-muted); font-size:0.9rem;">Por favor selecione primeiro a data.</div>
+            </div>
+            <div class="availability-info" id="availabilityNotice"></div>
+          </div>
+
+          <!-- CUSTOMER DETAILS -->
+          <div class="form-group">
+            <label class="form-label" for="customerName">4. Nome Completo</label>
+            <input type="text" id="customerName" class="form-control" placeholder="Ex: João Silva">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customerPhone">5. Telemóvel de Contacto</label>
+            <input type="tel" id="customerPhone" class="form-control" placeholder="Ex: 912 345 678">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="carModel">6. Marca e Modelo da Viatura</label>
+            <input type="text" id="carModel" class="form-control" placeholder="Ex: BMW Série 3 / Golf VII">
+          </div>
+
+          <!-- ORDER SUMMARY -->
+          <div class="summary-box">
+            <div class="summary-row">
+              <span>Serviço:</span>
+              <strong id="sumService">Lavagem Premium</strong>
+            </div>
+            <div class="summary-row">
+              <span>Data:</span>
+              <strong id="sumDate">-</strong>
+            </div>
+            <div class="summary-row">
+              <span>Horário de Entrega:</span>
+              <strong id="sumTime">-</strong>
+            </div>
+            <div class="summary-row total">
+              <span>Total a pagar no local:</span>
+              <span id="sumPrice">80 €</span>
+            </div>
+          </div>
+
+          <!-- PRIVACY NOTE -->
+          <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:1.25rem;">
+            Os seus dados pessoais são utilizados exclusivamente para gerir a sua marcação e contacto sobre o serviço.
+          </p>
+
+          <button class="btn-cta" id="btnSubmitBooking" style="width:100%; justify-content:center;" onclick="submitBooking()">
+            Confirmar Marcação
+          </button>
+        </div>
+
+        <!-- CONFIRMATION STEP (SUCCESS) -->
+        <div id="bookingConfirmationStep" style="display:none;">
+          <div class="confirmation-box">
+            <div class="success-icon">
+              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h3>Marcação Confirmada com Sucesso!</h3>
+            <p style="color:var(--text-muted); margin-top:0.5rem;">Guarde a sua referência de agendamento:</p>
+
+            <div class="ref-code" id="resRefCode">#SL-XXXXXX</div>
+
+            <div class="summary-box" style="text-align:left;">
+              <div class="summary-row">
+                <span>Serviço:</span>
+                <strong id="resService">-</strong>
+              </div>
+              <div class="summary-row">
+                <span>Data:</span>
+                <strong id="resDate">-</strong>
+              </div>
+              <div class="summary-row">
+                <span>Horário de Entrega:</span>
+                <strong id="resTime">-</strong>
+              </div>
+              <div class="summary-row">
+                <span>Viatura:</span>
+                <strong id="resCar">-</strong>
+              </div>
+              <div class="summary-row total">
+                <span>Valor:</span>
+                <span id="resPrice">-</span>
+              </div>
+            </div>
+
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.5rem;">
+              Localização: <strong>Bomba da BP em Aveiro</strong> (Av. Dr. Francisco Vale Guimarães, junto ao Clube dos Galitos).<br>
+              Agradecemos a sua preferência!
+            </p>
+
+            <button class="btn-secondary" style="width:100%;" onclick="closeBookingModal()">
+              Fechar
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 Style Lux Auto Details. Todos os direitos reservados.</div>
+        <div>Aveiro | Bomba BP | Contactos: 933 555 877 / 910 677 588</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js?v=20261001-sync"></script>
+</body>
+</html>

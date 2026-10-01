@@ -1,0 +1,21 @@
+# Data and SQLite files
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Credentials & environment
+.env
+.env.local
+admin_config.json
+acesso-admin.txt
+
+# Python cache
+__pycache__/
+*.pyc
+tests/test_data/
+
+.vercel/
+.venv/
+.DS_Store
+.env.*

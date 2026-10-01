@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "outputDirectory": "public",
+  "functions": {"api/index.py": {"maxDuration": 30}},
+  "rewrites": [
+    {"source": "/crm", "destination": "/admin.html"},
+    {"source": "/crm/", "destination": "/admin.html"},
+    {"source": "/admin", "destination": "/admin.html"},
+    {"source": "/admin/", "destination": "/admin.html"},
+    {"source": "/api/:path*", "destination": "/api/index?_route=:path*"}
+  ]
+}
