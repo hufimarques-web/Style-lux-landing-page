@@ -3,13 +3,13 @@
 Plataforma Web e Sistema próprio de agendamento (Agenda Própria) para **Style Lux Auto Details** em Aveiro.
 
 > [!IMPORTANT]
-> **Estado Atual:** Aplicação a executar localmente em ambiente seguro (`127.0.0.1:8080`). **NÃO está publicada publicamente.**
+> **Estado Atual:** Publicada na Vercel em https://style-lux-landing-page.vercel.app. CRM privado em https://style-lux-landing-page.vercel.app/crm. Site e CRM partilham PostgreSQL persistente (Neon).
 
 ---
 
 ## 🏎️ Sobre o Projeto
 
-O projeto consiste numa Landing Page de alta conversão, desenvolvida sob medida em Português de Portugal, integrada com um motor de agendamento próprio em Python/SQLite sem qualquer dependência de serviços externos (sem Calendly, SimplyBook ou formulários externos).
+O projeto consiste numa Landing Page de alta conversão, desenvolvida sob medida em Português de Portugal, integrada com um motor de agendamento próprio em Python, com SQLite local e PostgreSQL na Vercel (sem Calendly, SimplyBook ou formulários externos).
 
 ### Ofertas da Style Lux em Aveiro
 - **Lavagem Premium (80 €)**: Lavagem exterior manual, limpeza de jantes, vidros interior/exterior, tablier/laterais, higienização de estofados, revitalização dos plásticos, proteção da pele dos bancos, aspiração com jato de ar, limpeza do ar condicionado, cera protetora e acabamento premium.
@@ -56,7 +56,7 @@ De acordo com as indicações iniciais do estabelecimento, a agenda encontra-se 
 - **Horários Iniciais de Entrega**: `09:00`, `11:00`, `13:00`, `15:00`, `17:00`.
 
 > [!NOTE]
-> Esta configuração é **totalmente editável** pelo administrador através da tab **"Configuração & Vagas"** no painel `/admin` ou via base de dados antes de iniciar a operação pública.
+> Esta configuração é **totalmente editável** pelo administrador através da aba **"Disponibilidade"** no painel `/admin` ou via base de dados antes de iniciar a operação pública.
 
 ---
 
@@ -65,7 +65,7 @@ De acordo com as indicações iniciais do estabelecimento, a agenda encontra-se 
 O projeto inclui uma suite completa de testes de integração e segurança que opera sobre uma base de dados isolada temporária:
 
 ```bash
-python3 tests/test_backend.py
+python3 -B -m unittest discover -s tests -q
 ```
 
 ### Validações Testadas
@@ -88,7 +88,7 @@ O destino escolhido é a Vercel, com PostgreSQL persistente. Ver a configuraçã
 
 ## CRM — agenda, clientes e resultados
 
-Abre `/crm` ou `/admin` e entra com a conta privada existente em `data/acesso-admin.txt`. A palavra-passe não mudou. O CRM partilha a mesma base SQLite com o site; não é necessário importar marcações.
+Abre `/crm` ou `/admin` e entra com uma das contas privadas configuradas. O CRM partilha a base de dados com o site (PostgreSQL online, SQLite local); não é necessário importar marcações do site online.
 
 - Visão geral com período de datas, valor concluído, recebido e pendente.
 - Agenda por dia, semana e mês; fichas, reagendamento, cancelamento e bloqueios.
@@ -114,7 +114,7 @@ Antes de ativar reservas online, configurar na Vercel:
 
 O esquema é criado automaticamente no primeiro pedido da API. Uma instalação nova começa vazia: a publicação **não transfere** dados locais de clientes ou marcações. A API devolve indisponibilidade se faltar a configuração, em vez de aceitar reservas sem armazenamento permanente.
 
-A implementação PostgreSQL utiliza um bloqueio transacional partilhado para serializar alterações da agenda e impedir que instâncias concorrentes reservem a mesma vaga. O suporte foi preparado; a validação numa base PostgreSQL real deve ser concluída antes de abrir as reservas ao público.
+A implementação PostgreSQL utiliza um bloqueio transacional partilhado para serializar alterações da agenda e impedir que instâncias concorrentes reservem a mesma vaga. Validado em produção a 1 de outubro de 2026: ambos os logins, acesso autenticado ao CRM, criação pública de uma reserva de 80 €, presença no CRM, ocupação do horário, rejeição de reserva duplicada e libertação da vaga após cancelamento. A reserva técnica ficou cancelada e identificada como teste. Os 12 testes de integração locais também passaram.
 
 A agenda atualiza-se automaticamente a cada 5 segundos enquanto está aberta; o formulário público reconsulta horários a cada 15 segundos e confirma a disponibilidade novamente no envio. Bloqueios, limite diário e horários são controlados no CRM.
 
