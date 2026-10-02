@@ -893,4 +893,5 @@ button {
   }
 }
 
-.engine-photo-placeholder{min-height:350px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;text-align:center;background:radial-gradient(ellipse at top right,rgba(220,38,38,.12),transparent 65%),var(--bg-card)}.engine-placeholder-title{font-size:1.6rem;font-weight:600;color:var(--text-muted)}
+.engine-comparison img{height:auto;object-fit:contain;}
+.engine-comparison:hover img{transform:none;}

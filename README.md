@@ -118,4 +118,4 @@ A implementação PostgreSQL utiliza um bloqueio transacional partilhado para se
 
 A agenda atualiza-se automaticamente a cada 5 segundos enquanto está aberta; o formulário público reconsulta horários a cada 15 segundos e confirma a disponibilidade novamente no envio. Bloqueios, limite diário e horários são controlados no CRM.
 
-A secção Limpeza do Motor já está acima do interior. A fotografia definitiva está pendente de envio pelo proprietário.
+A secção Limpeza do Motor está acima do interior e apresenta uma comparação antes/depois criada a partir das duas fotografias fornecidas, sem a sobreposição «Detailing.».
