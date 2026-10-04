@@ -15,6 +15,7 @@ DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
 DB_PATH = os.path.join(DATA_DIR, 'stylelux.db')
 
 SERVICES = {
+    'exterior': {'name': 'Lavagem Exterior + proteção básica', 'price': 30.0},
     'premium': {
         'name': 'Lavagem Premium',
         'price': 80.0
@@ -287,7 +288,7 @@ def get_public_availability(date_str):
         'slots': slot_details
     }
 
-def create_booking(service_key, booking_date, time_slot, customer_name, customer_phone, car_model, utm_source='', utm_medium='', utm_campaign=''):
+def create_booking(service_key, booking_date, time_slot, customer_name, customer_phone, car_model, utm_source='', utm_medium='', utm_campaign='', _connection=None):
     if not isinstance(service_key, str) or service_key not in SERVICES:
         return {'success': False, 'error': 'Serviço selecionado é inválido.'}
 
@@ -323,9 +324,9 @@ def create_booking(service_key, booking_date, time_slot, customer_name, customer
     if target_date.weekday() == 6:
         return {'success': False, 'error': 'Ao domingo o estabelecimento está encerrado.'}
 
-    conn = get_db_connection()
+    conn = _connection if _connection is not None else get_db_connection()
     try:
-        conn.execute("BEGIN EXCLUSIVE")
+        if _connection is None: conn.execute("BEGIN EXCLUSIVE")
         cursor = conn.cursor()
 
         settings = get_settings(conn)
@@ -385,7 +386,7 @@ def create_booking(service_key, booking_date, time_slot, customer_name, customer
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'Pendente', ?, ?, ?, ?)
         ''', (ref_code, service_key, price, booking_date, time_slot, customer_name.strip(), phone_clean, car_model.strip(), utm_source, utm_medium, utm_campaign, created_at_str))
 
-        conn.commit()
+        if _connection is None: conn.commit()
 
         return {
             'success': True,
@@ -407,7 +408,7 @@ def create_booking(service_key, booking_date, time_slot, customer_name, customer
         conn.rollback()
         return {'success': False, 'error': f'Erro ao processar reserva: {str(e)}'}
     finally:
-        conn.close()
+        if _connection is None: conn.close()
 
 def update_booking_status(booking_id, new_status):
     if new_status not in ['Pendente', 'Concluída', 'Cancelada']:

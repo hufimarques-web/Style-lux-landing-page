@@ -895,3 +895,16 @@ button {
 
 .engine-comparison img{height:auto;object-fit:contain;}
 .engine-comparison:hover img{transform:none;}
+
+/* Requests for wax cleaning do not reserve a date or slot. */
+#waxFields[hidden],#bookingSchedule[hidden],.summary-row[hidden]{display:none!important;}
+#opt-exterior{grid-column:1/-1;text-align:left;color:inherit;font:inherit;gap:.5rem;}
+#opt-exterior small{color:var(--text-muted);font-size:.8rem;}
+.wax-notice{padding:1rem;border:1px solid var(--border-color);border-radius:var(--radius-md);margin-bottom:1rem;color:var(--text-muted);line-height:1.6;}
+
+.service-option { position: relative; color: inherit; font: inherit; text-align: left; gap: .5rem; }
+.service-option small { font-size: .8rem; color: var(--text-muted); line-height: 1.5; }
+.service-selector { row-gap: 1.75rem; }
+.service-popular { border: 2px solid var(--brand-red); padding-top: 1.6rem; }
+.popular-badge { right: auto; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+.service-option .popular-badge { font-size: .68rem; padding: .3rem .65rem; }

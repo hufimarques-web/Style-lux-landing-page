@@ -14,6 +14,7 @@ let state = {
 let availabilityReqSeq = 0;
 
 const SERVICES_DATA = {
+  'exterior': { name: 'Lavagem Exterior + proteção básica', price: '30 €', amount: 30 },
   'premium': { name: 'Lavagem Premium', price: '80 €', amount: 80.0 },
   'completa': { name: 'Lavagem Premium Completa', price: '130 €', amount: 130.0 }
 };
@@ -28,7 +29,7 @@ function parseUrlParams() {
   const urlParams = new URLSearchParams(window.location.search);
   
   const sParam = urlParams.get('servico');
-  if (sParam === 'completa' || sParam === 'premium') {
+  if (Object.hasOwn(SERVICES_DATA, sParam)) {
     state.selectedService = sParam;
     setTimeout(() => {
       openBookingModal(sParam);
@@ -73,11 +74,20 @@ function getTodayLisbonStr() {
 
 function selectService(serviceKey) {
   if (!SERVICES_DATA[serviceKey]) return;
+  const wasWax = state.selectedService === 'exterior';
   state.selectedService = serviceKey;
+  const wax = serviceKey === 'exterior';
+  if (wax) availabilityReqSeq++;
+  document.getElementById('waxFields').hidden = !wax;
+  document.getElementById('bookingSchedule').hidden = wax;
+  ['sumDate','sumTime'].forEach(id => document.getElementById(id).closest('.summary-row').hidden = wax);
+  setElemText('bookingTitle', wax ? 'Pedir lavagem exterior' : 'Agendar Entrega da Viatura');
+  setElemText('btnSubmitBooking', wax ? 'Enviar pedido de contacto' : 'Confirmar Marcação');
+  if (wasWax && !wax) fetchAvailability();
 
-  document.querySelectorAll('.service-option').forEach(opt => opt.classList.remove('selected'));
+  document.querySelectorAll('.service-option').forEach(opt => { opt.classList.remove('selected'); opt.setAttribute('aria-pressed', 'false'); });
   const optEl = document.getElementById(`opt-${serviceKey}`);
-  if (optEl) optEl.classList.add('selected');
+  if (optEl) { optEl.classList.add('selected'); optEl.setAttribute('aria-pressed', 'true'); }
 
   updateSummary();
 }
@@ -110,6 +120,7 @@ function closeBookingModal() {
 }
 
 async function fetchAvailability(preserveSelection = false) {
+  if (state.selectedService === 'exterior') return;
   const dateInput = document.getElementById('bookingDate');
   const slotsGrid = document.getElementById('slotsGrid');
   const noticeEl = document.getElementById('availabilityNotice');
@@ -229,11 +240,11 @@ async function submitBooking() {
     showError('Por favor selecione um serviço.');
     return;
   }
-  if (!state.selectedDate) {
+  if (state.selectedService !== 'exterior' && !state.selectedDate) {
     showError('Por favor selecione uma data válida.');
     return;
   }
-  if (!state.selectedSlot) {
+  if (state.selectedService !== 'exterior' && !state.selectedSlot) {
     showError('Por favor escolha um horário de entrega disponível.');
     return;
   }
@@ -253,11 +264,13 @@ async function submitBooking() {
   const btnSubmit = document.getElementById('btnSubmitBooking');
   if (btnSubmit) {
     btnSubmit.disabled = true;
-    btnSubmit.textContent = 'A processar reserva...';
+    btnSubmit.textContent = state.selectedService === 'exterior' ? 'A enviar pedido...' : 'A processar reserva...';
   }
 
+  const wax = state.selectedService === 'exterior';
   const payload = {
     service_key: state.selectedService,
+    preference: document.getElementById('waxPreference').value.trim(),
     booking_date: state.selectedDate,
     time_slot: state.selectedSlot,
     customer_name: customerName,
@@ -269,7 +282,7 @@ async function submitBooking() {
   };
 
   try {
-    const res = await fetch('/api/bookings', {
+    const res = await fetch(wax ? '/api/wax-requests' : '/api/bookings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -279,11 +292,11 @@ async function submitBooking() {
 
     if (btnSubmit) {
       btnSubmit.disabled = false;
-      btnSubmit.textContent = 'Confirmar Marcação';
+      btnSubmit.textContent = wax ? 'Enviar pedido de contacto' : 'Confirmar Marcação';
     }
 
     if (res.ok && data.success) {
-      showConfirmation(data.booking);
+      showConfirmation(wax ? data.request : data.booking, wax);
     } else {
       showError(data.error || 'Não foi possível concluir a reserva.');
       fetchAvailability();
@@ -291,13 +304,16 @@ async function submitBooking() {
   } catch (err) {
     if (btnSubmit) {
       btnSubmit.disabled = false;
-      btnSubmit.textContent = 'Confirmar Marcação';
+      btnSubmit.textContent = wax ? 'Enviar pedido de contacto' : 'Confirmar Marcação';
     }
     showError('Ocorreu um erro de comunicação com o servidor. Por favor tente novamente.');
   }
 }
 
-function showConfirmation(booking) {
+function showConfirmation(booking, wax = false) {
+  setElemText('confirmationTitle', wax ? 'Pedido recebido!' : 'Marcação Confirmada com Sucesso!');
+  setElemText('confirmationMessage', wax ? 'Vamos contactá-lo para combinar uma vaga. Ainda não existe data ou horário confirmado. Guarde a referência do seu pedido:' : 'Guarde a sua referência de agendamento:');
+  ['resDate','resTime'].forEach(id => document.getElementById(id).closest('.summary-row').hidden = wax);
   document.getElementById('bookingFormStep').style.display = 'none';
   document.getElementById('bookingConfirmationStep').style.display = 'block';
 

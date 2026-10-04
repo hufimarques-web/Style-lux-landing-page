@@ -222,6 +222,8 @@ class StyleLuxRequestHandler(BaseHTTPRequestHandler):
         client_ip = self.client_address[0]
 
         crm_actions = {
+            '/api/admin/wax-requests/update': crm.update_wax_request,
+            '/api/admin/wax-requests/schedule': crm.schedule_wax_request,
             '/api/admin/crm/details': crm.update_details,
             '/api/admin/crm/spend': crm.save_spend,
             '/api/admin/crm/terms': crm.save_terms,
@@ -236,8 +238,19 @@ class StyleLuxRequestHandler(BaseHTTPRequestHandler):
                 self.send_json({'error': str(exc)}, 400)
             return
 
+        if path == '/api/wax-requests':
+            try:
+                result = crm.create_wax_request(body)
+                self.send_json({'success': True, 'request': result})
+            except ValueError as exc:
+                self.send_json({'error': str(exc)}, 400)
+            return
+
         # PUBLIC BOOKING CREATION
         if path == '/api/bookings':
+            if body.get('service_key') in crm.WAX_SERVICES:
+                self.send_json({'error': 'A lavagem exterior deve ser enviada como pedido de contacto, sem marcação automática.'}, 400)
+                return
             service_key = body.get('service_key', '')
             booking_date = body.get('booking_date', '')
             time_slot = body.get('time_slot', '')

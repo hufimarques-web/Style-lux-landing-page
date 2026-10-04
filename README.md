@@ -119,3 +119,11 @@ A implementação PostgreSQL utiliza um bloqueio transacional partilhado para se
 A agenda atualiza-se automaticamente a cada 5 segundos enquanto está aberta; o formulário público reconsulta horários a cada 15 segundos e confirma a disponibilidade novamente no envio. Bloqueios, limite diário e horários são controlados no CRM.
 
 A secção Limpeza do Motor está acima do interior e apresenta uma comparação antes/depois criada a partir das duas fotografias fornecidas, sem a sobreposição «Detailing.».
+
+## Pedidos de lavagem exterior (30 €)
+
+O formulário distingue a Lavagem Exterior + proteção básica (30 €) da Lavagem Premium (80 €) e Premium Completa (130 €). A exterior envia um pedido de contacto para a aba **Lavagem Exterior** do CRM, sem data confirmada, sem ocupar capacidade e sem contar como marcação ou venda.
+
+Na aba, é possível pesquisar, guardar notas, marcar como contactado ou arquivar. Depois de combinar um horário com o cliente, a ação **Confirmar e colocar na agenda** converte o pedido numa marcação, respeitando horários, bloqueios e capacidade. A conversão é atómica e só pode acontecer uma vez. A comissão não é ativada automaticamente nestas lavagens.
+
+A Premium e a Completa continuam com marcação direta. O selo **Mais escolhida** aparece acima do cartão Premium de 80 €.
