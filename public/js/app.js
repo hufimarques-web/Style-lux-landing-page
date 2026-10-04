@@ -20,6 +20,10 @@ const SERVICES_DATA = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  const compact = window.matchMedia('(max-width: 600px)');
+  const setPackageDetails = () => document.querySelectorAll('.package-details').forEach(detail => { detail.open = !compact.matches; });
+  setPackageDetails();
+  compact.addEventListener('change', setPackageDetails);
   parseUrlParams();
   setupDatePicker();
   selectService(state.selectedService);

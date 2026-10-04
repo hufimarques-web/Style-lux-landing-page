@@ -7,7 +7,7 @@
   <meta name="description" content="Serviço de detalhe e lavagem premium automóvel nas bombas da BP em Aveiro. Escolha o seu pacote e agende o horário de entrega da sua viatura online.">
   <meta name="keywords" content="Style Lux, detalhe automóvel Aveiro, lavagem premium Aveiro, higienização estofados, limpeza motor Aveiro">
   
-  <link rel="stylesheet" href="css/style.css?v=20261004-cera">
+  <link rel="stylesheet" href="css/style.css?v=20261004-mobile">
   <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏎️</text></svg>">
   <!-- Meta Pixel Code -->
   <script>
@@ -85,67 +85,6 @@
 
     <div class="packages-grid">
       
-      <!-- PACKAGE 1: PREMIUM (80 EUR) -->
-      <div class="package-card popular" id="card-premium">
-        <span class="popular-badge">⭐ Mais escolhida</span>
-        <div class="package-header">
-          <h3 class="package-name">Lavagem Premium</h3>
-          <div class="package-price">
-            <span class="amount">80</span>
-            <span class="currency">€</span>
-          </div>
-        </div>
-        <ul class="package-highlights">
-          <li>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-            <span>Lavagem exterior manual</span>
-          </li>
-          <li>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-            <span>Limpeza de jantes</span>
-          </li>
-          <li>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-            <span>Vidros interior e exterior</span>
-          </li>
-          <li>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-            <span>Limpeza de tablier e laterais</span>
-          </li>
-          <li>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-            <span>Higienização de estofados</span>
-          </li>
-          <li>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-            <span>Revitalização dos plásticos</span>
-          </li>
-          <li>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-            <span>Proteção da pele dos bancos</span>
-          </li>
-          <li>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-            <span>Aspiração com jato de ar</span>
-          </li>
-          <li>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-            <span>Limpeza do ar condicionado</span>
-          </li>
-          <li>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-            <span>Cera protetora e acabamento premium</span>
-          </li>
-          <li class="excluded">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-            <span>Limpeza de motor (não incluída)</span>
-          </li>
-        </ul>
-        <button class="btn-secondary" onclick="openBookingModal('premium')">
-          Escolher Horário — 80 €
-        </button>
-      </div>
-
       <!-- PACKAGE 2: PREMIUM COMPLETA (130 EUR) -->
       <div class="package-card" id="card-completa">
         <div class="package-header">
@@ -155,6 +94,9 @@
             <span class="currency">€</span>
           </div>
         </div>
+        <ul class="package-brief"><li>Interior e exterior com cuidado Premium</li><li>Higienização de estofados e proteção</li><li>Inclui lavagem do motor</li></ul>
+        <details class="package-details" open>
+          <summary>Ver tudo o que inclui</summary>
         <ul class="package-highlights">
           <li class="motor-highlight">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
@@ -201,8 +143,74 @@
             <span>Cera protetora e acabamento premium</span>
           </li>
         </ul>
+        </details>
         <button class="btn-cta" style="width:100%; justify-content:center;" onclick="openBookingModal('completa')">
           Escolher Horário — 130 €
+        </button>
+      </div>
+
+      <!-- PACKAGE 1: PREMIUM (80 EUR) -->
+      <div class="package-card popular" id="card-premium">
+        <span class="popular-badge">⭐ Mais escolhida</span>
+        <div class="package-header">
+          <h3 class="package-name">Lavagem Premium</h3>
+          <div class="package-price">
+            <span class="amount">80</span>
+            <span class="currency">€</span>
+          </div>
+        </div>
+        <ul class="package-brief"><li>Interior e exterior com limpeza detalhada</li><li>Higienização de estofados e proteção</li><li>Não inclui lavagem do motor</li></ul>
+        <details class="package-details" open>
+          <summary>Ver tudo o que inclui</summary>
+        <ul class="package-highlights">
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Lavagem exterior manual</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Limpeza de jantes</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Vidros interior e exterior</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Limpeza de tablier e laterais</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Higienização de estofados</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Revitalização dos plásticos</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Proteção da pele dos bancos</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Aspiração com jato de ar</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Limpeza do ar condicionado</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+            <span>Cera protetora e acabamento premium</span>
+          </li>
+          <li class="excluded">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+            <span>Limpeza de motor (não incluída)</span>
+          </li>
+        </ul>
+        </details>
+        <button class="btn-secondary" onclick="openBookingModal('premium')">
+          Escolher Horário — 80 €
         </button>
       </div>
 
@@ -315,10 +323,10 @@
           <div class="form-group">
             <label class="form-label">Selecione o Serviço</label>
             <div class="service-selector">
-              <button type="button" class="service-option" id="opt-exterior" onclick="selectService('exterior')">
-                <span class="service-option-title">Lavagem Exterior + proteção básica</span>
-                <span class="service-option-price">30 €</span>
-                <small>Pedido de contacto · sem horário confirmado</small>
+              <button type="button" class="service-option" id="opt-completa" onclick="selectService('completa')">
+                <span class="service-option-title">Lavagem Premium Completa</span>
+                <small>Tudo da Premium + lavagem do motor</small>
+                <span class="service-option-price">130 €</span>
               </button>
               <button type="button" class="service-option service-popular" id="opt-premium" onclick="selectService('premium')">
                 <span class="popular-badge">⭐ Mais escolhida</span>
@@ -326,10 +334,10 @@
                 <small>Interior + exterior + limpeza detalhada + proteção</small>
                 <span class="service-option-price">80 €</span>
               </button>
-              <button type="button" class="service-option" id="opt-completa" onclick="selectService('completa')">
-                <span class="service-option-title">Lavagem Premium Completa</span>
-                <small>Tudo da Premium + lavagem do motor</small>
-                <span class="service-option-price">130 €</span>
+              <button type="button" class="service-option" id="opt-exterior" onclick="selectService('exterior')">
+                <span class="service-option-title">Lavagem Exterior + proteção básica</span>
+                <span class="service-option-price">30 €</span>
+                <small>Pedido de contacto · sem horário confirmado</small>
               </button>
             </div>
           </div>
@@ -460,6 +468,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=20261004-cera"></script>
+  <script src="js/app.js?v=20261004-mobile"></script>
 </body>
 </html>
